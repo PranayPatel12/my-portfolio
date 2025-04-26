@@ -1,0 +1,716 @@
+
+:root {
+  --bg: #f8f9fc;
+  --text: #343a40;
+  --accent: #4e73df;
+  --highlight: #2dce89;
+  --section-bg: #ffffff;
+  --header-bg: #1e293b;
+  --footer-bg: #1e293b;
+  --footer-text: #94a3b8;
+}
+
+body.dark-mode {
+  --bg: #0f172a;
+  --text: #f8fafc;
+  --accent: #60a5fa;
+  --highlight: #34d399;
+  --section-bg: #1e293b;
+  --header-bg: #0f172a;
+  --footer-bg: #0f172a;
+  --footer-text: #cbd5e1;
+}
+
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  scroll-margin-top: 80px;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.hero-highlighted {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid var(--highlight);
+  box-shadow: 0 0 40px rgba(45, 206, 137, 0.5);
+  object-fit: cover;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .4s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--highlight);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+
+
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--highlight);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Header */
+header {
+  background-color: var(--header-bg);
+  padding: 1rem 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+nav li a {
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+}
+
+nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--highlight);
+  transition: width 0.3s ease-in-out;
+}
+
+nav li a:hover::after {
+  width: 100%;
+}
+/* The toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4CAF50; /* Green when checked */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Move the slider when checked */
+}
+
+/* When light mode is active */
+body.light-mode .slider {
+  background-color: #f0f0f0;
+}
+
+body.light-mode .slider:before {
+  background-color: #ffb84d; /* Lighter color for the slider in light mode */
+}
+
+body.dark-mode .slider {
+  background-color: #1e1e1e; /* Dark background for slider in dark mode */
+}
+
+body.dark-mode .slider:before {
+  background-color: #1c1c1c; /* Darker color for the slider in dark mode */
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem 1rem;
+  background: var(--footer-bg);
+  color: #fbbf24;
+}
+
+.hero-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4e73df;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: var(--highlight);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  margin-bottom: 1.5rem;
+}
+
+.cta-buttons .btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 0 0.5rem;
+  display: inline-block;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.secondary {
+  background: var(--highlight);
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Section Style */
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #4e73df;
+  padding-left: 1rem;
+  animation: fadeInUp 0.6s ease-in-out both;
+}
+
+/* About Section */
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #4e73df;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--text);
+  max-width: 600px;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.skill-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.skill-logo:hover {
+  transform: scale(1.2); /* Slightly enlarge the logo on hover */
+}
+.skill-logo:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* adds a soft shadow */
+}
+.skill-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.skill-logo:hover {
+  transform: scale(1.2) rotate(10deg); /* Enlarge and slightly rotate */
+}
+.skill-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-logo:hover {
+  transform: translateY(-8px) scale(1.2); /* Move up and enlarge */
+}
+.skill-logo:hover {
+  transform: translateY(-5px) scale(1.2) rotate(5deg);
+}
+
+
+.skill span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+
+
+
+
+body {
+  background-color: #0a0f24; /* Dark background */
+  color: #f0f0f0; /* Light text */
+}
+
+.achievement {
+  background-color: #1a1f36; /* Slightly lighter than background */
+  color: #e0e0e0; /* Light gray text for better readability */
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+.skill-logo {
+  vertical-align: middle; /* Aligns the image with the text on the same baseline */
+  margin-right: 10px; /* Adds some space between the image and the text */
+}
+.achievement h3 {
+  color: #4ea8ff; /* Highlight color for headings */
+  margin-bottom: 0.5rem;
+}
+
+.achievement.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.achievement:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.achievement:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skill Levels */
+.java::after {
+  width: 95%;
+}
+
+.python::after {
+  width: 65%;
+}
+
+.git::after {
+  width: 85%;
+}
+
+.docker::after {
+  width: 80%;
+}
+
+.cpp::after {
+  width: 85%;
+}
+
+.c::after {
+  width: 75%;
+}
+
+.machinelearning::after {
+  width: 85%;
+}
+
+.devops::after {
+  width: 90%;
+}
+
+/* Soft skills */
+.problemsolving::after {
+  width: 88%;
+}
+
+.curiosity::after {
+  width: 93%;
+}
+
+.adaptability::after {
+  width: 88%;
+}
+
+.collaboration::after {
+  width: 90%;
+}
+/* Project Cards */
+.project {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.project h3 {
+  color: #4ea8ff; /* Highlight color for headings */
+  margin-bottom: 0.5rem;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: transparent; /* no box */
+}
+
+.skill-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.skill-logo:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.skill span {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Progress bar styles */
+.bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #00e676, #66ff66);
+  border-radius: 10px;
+}
+
+
+/* Animation */
+@keyframes fillAnimation {
+  0% { width: 0; }
+  100% { width: 90%; } /* default fill */
+}
+
+h3 {
+  margin-top: 40px;
+  font-size: 24px;
+  color: #333;
+  border-bottom: 2px solid #00c6ff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.project a:hover {
+  color: var(--highlight);
+}
+
+/* Resume Button */
+.resume-download {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.resume-download:hover {
+  background: var(--highlight);
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: var(--footer-text);
+  border-top: 1px solid #334155;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bubbles span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(78, 115, 223, 0.2);
+  animation: floatUp 20s infinite ease-in;
+  bottom: -150px;
+  border-radius: 50%;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-1000px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+.project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300%;
+  height: 100%;
+  background: rgba(78, 115, 223, 0.05);
+  transition: all 0.6s ease;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.project:hover::before {
+  width: 0%;
+  height: 0%;
+}
+
+h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+
+h2.animated-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill:hover {
+  box-shadow: 0 0 15px rgba(45, 206, 137, 0.4);
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
+
+
+/* Enhanced Skill and Project Backgrounds for Dark Mode */
+body.dark-mode .skill,
+body.dark-mode .project {
+  background: var(--section-bg);
+}
+
+/* Glowing border for hero image */
+.hero-image {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Call to Action Button Animation */
+.cta-buttons .btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(100, 149, 237, 0.5);
+}
+
+/* Enhanced bubble appearance */
+.bubbles span {
+  background: rgba(78, 115, 223, 0.4);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
